@@ -15,5 +15,8 @@ variable "public_key" {
 
 variable "ec2_type" {
     type = string
-    default = "t3a.small"
+}
+
+variable "tags" {
+    type = map
 }

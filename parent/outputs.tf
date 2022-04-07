@@ -1,9 +1,5 @@
 output "slacko-app-IP" {
-  value = aws_instance.slacko-app.public_ip
-}
-
-output "slacko-mongodb-ip" {
- value = aws_instance.slacko-mongodb.private_ip
+  value = aws_instance.jenkins_ec2.public_ip
 }
 
 output "vpc_id" {
