@@ -1,4 +1,4 @@
-output "slacko-app-IP" {
+output "jenkins_ip" {
   value = aws_instance.jenkins_ec2.public_ip
 }
 
