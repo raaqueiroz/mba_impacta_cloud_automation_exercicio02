@@ -11,6 +11,20 @@ resource "aws_instance" "jenkins_ec2" {
   key_name = aws_key_pair.jenkins_key_pair.key_name
   user_data = file("jenkins.sh")
   security_groups = [aws_security_group.sg_cloud_automation.id]
+
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 180",
+      "sudo cat /var/lib/jenkins/secrets/initialAdminPassword",
+    ]
+  }
+
+  connection {
+		type        = "ssh"
+		user        = "ubuntu"
+		private_key = file("exercicio02.pem")
+		host        = aws_instance.jenkins_ec2.public_ip
+	}
   
   tags = var.tags
 }
